@@ -182,7 +182,7 @@ class Register extends React.Component {
                     </CardBody>
                   </Card>
                   <Row className="mt-3">
-                    <Col xs="6">
+                    {/* <Col xs="6">
                       <a
                           className="text-light"
                           href="#pablo"
@@ -190,7 +190,7 @@ class Register extends React.Component {
                       >
                         <small>Forgot password?</small>
                       </a>
-                    </Col>
+                    </Col> */}
                     <Col className="text-right" xs="6">
                       <Link
                           to="login-page"

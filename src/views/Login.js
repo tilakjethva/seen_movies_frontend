@@ -36,7 +36,7 @@ class Login extends React.Component {
         console.log( this.state);
         const { history } = this.props;
 
-        // fetch("https://cors-anywhere.herokuapp.com/http://localhost:8080/auth/realms/movie-oidc/protocol/openid-connect/token", {
+        // fetch("http://localhost:8080/auth/realms/movie-oidc/protocol/openid-connect/token", {
         //   method: 'POST',
         //     body: {"client_id":"movie-application",
         //       "grant_type":"password",
@@ -143,7 +143,7 @@ class Login extends React.Component {
                     </CardBody>
                   </Card>
                   <Row className="mt-3">
-                    <Col xs="6">
+                    {/* <Col xs="6">
                       <a
                         className="text-light"
                         href="#pablo"
@@ -151,7 +151,7 @@ class Login extends React.Component {
                       >
                         <small>Forgot password?</small>
                       </a>
-                    </Col>
+                    </Col> */}
                     <Col className="text-right" xs="6">
                       <Link
                           to="register-page"

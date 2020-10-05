@@ -1,13 +1,19 @@
 import React from "react";
+// nodejs library that concatenates classes
+import classnames from "classnames";
 
 // reactstrap components
 import {
     Form,
     Button,
     Card,
+    CardBody,
     CardImg,
     FormGroup,
     Input,
+    InputGroupAddon,
+    InputGroupText,
+    InputGroup,
     Container,
     Row,
     Col
@@ -33,15 +39,18 @@ class MovieDetail extends React.Component {
     componentDidMount() {
         document.documentElement.scrollTop = 0;
         document.scrollingElement.scrollTop = 0;
+
+        console.log(window.location.href)
+        let id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         //  API to get movie detail
-        // let x = "5f7a4b43f70b7938306eed8d"//"localStorage.getItem('movie_id')"
+        
         // fetch('http://localhost:3000/movies/5f7a4b43f70b7938306eed8d', {
         //     // body: JSON.stringify(this.state),
         //     headers: {
         //       "Content-Type": "application/json"
         //     },
         // })
-        fetch("http://localhost:3000/movies/5f7a4b43f70b7938306eed8d")
+        fetch("http://localhost:3000/movies/"+id)
         .then(res => res.json())
         .then(
                 (result) => {
@@ -49,7 +58,7 @@ class MovieDetail extends React.Component {
                     console.log(result.item);
                     this.setState({
                         isLoaded: true,
-                        item: result
+                        item: result,
                     });
                 },
                 (error) => {
@@ -133,7 +142,7 @@ class MovieDetail extends React.Component {
                                             <h4> Rating </h4>
                                             <p>
                                             <StarRatings
-                                                rating={item.rating}
+                                                rating={5}
                                                 starRatedColor="gold"
                                                 numberOfStars={5}
                                                 starDimension="20px"
@@ -155,13 +164,12 @@ class MovieDetail extends React.Component {
                                 <hr />
                                 <Row>
                                     <Col md="8">
-                                        <h2>User Reviews</h2>
+                                        <h2>User Reviews {console.log(item.title)}</h2>
                                         {/* {item.comments.map(cmt => (
-                                            
                                             <row>
                                                 <p>
                                                 <StarRatings
-                                                    rating={item.rating}
+                                                    rating={parseInt(item.rating)}
                                                     starRatedColor="gold"
                                                     numberOfStars={5}
                                                     starDimension="20px"
